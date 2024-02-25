@@ -22,7 +22,12 @@ if __name__ == "__main__":
     seed_everything(seed=42)
     # Initialization of the agent. Replace DummyAgent with your custom agent implementation.
     agent = ProjectAgent()
-    agent.load()
+    agent.collect_samples(int(1e4))
+    gamma = .98
+    nb_iter = 100
+    nb_actions = fqi_agent.env.action_space.n
+    agent.rf_fqi(nb_iter, nb_actions, gamma)
+    # agent.load()
     # Keep the following lines to evaluate your agent unchanged.
     score_agent: float = evaluate_HIV(agent=agent, nb_episode=1)
     score_agent_dr: float = evaluate_HIV_population(agent=agent, nb_episode=15)
