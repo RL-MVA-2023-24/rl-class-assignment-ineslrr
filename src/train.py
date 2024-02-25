@@ -119,7 +119,8 @@ class ProjectAgent:
         if path is None:
             path = 'Q_tree.pkl'
         with open(path, 'wb') as f:
-            pickle.dump(self.Qfunctions[-1], f)
+            pickle.dump(self.Q, f)
+            print("Q saved!")
 
     def load(self) -> None:
         ### SAVE IN THE REPOSITORY
@@ -129,5 +130,6 @@ class ProjectAgent:
             return
         with open(path, 'rb') as f:
             self.Q = pickle.load(f)
+            print("Q loaded!")
   
     
