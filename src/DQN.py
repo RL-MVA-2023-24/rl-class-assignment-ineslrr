@@ -137,7 +137,7 @@ class DQNAgent:
 
     def load(self) -> None:
         self.config['device'] = 'cpu'
-        base_path = None
+        base_path = "DQN_weights.pkl"
         chkpt = torch.load(base_path, map_location=torch.device('cpu'))
         self.model.load_state_dict(chkpt['model_state_dict'])
         self.model.to(self.config['device'])
