@@ -110,7 +110,7 @@ class ProjectAgent:
         if use_random:
           action=self.env.action_space.sample()
         else:
-          action=self.greedy_action(self.Qfunctions[-1], observation, 1)
+          action=self.greedy_action(self.Q, observation, 1)
         return action
 
     def save(self, path: str=None) -> None:
