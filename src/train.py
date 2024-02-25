@@ -6,6 +6,7 @@ from sklearn.ensemble import ExtraTreesRegressor
 import matplotlib.pyplot as plt
 import pickle
 import os
+import numpy as np
 
 env = TimeLimit(
     env=HIVPatient(domain_randomization=False), max_episode_steps=200
