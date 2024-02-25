@@ -71,6 +71,8 @@ class ProjectAgent:
           Q = RandomForestRegressor()
           Q.fit(self.SA,value)
           self.Qfunctions.append(Q)
+      self.save()
+        
 
     def greedy_action(self, Q,s,nb_actions):
       Qsa = []
