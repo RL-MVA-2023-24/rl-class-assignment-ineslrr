@@ -26,6 +26,7 @@ class ProjectAgent:
       self.S2 = []
       self.D = []
       self.Qfunctions = []
+      self.Q = None
       
     def collect_samples(self, nb_samples, disable_tqdm=False, print_done_states=False):
       s, _ = self.env.reset()
@@ -71,9 +72,9 @@ class ProjectAgent:
           Q = RandomForestRegressor()
           Q.fit(self.SA,value)
           self.Qfunctions.append(Q)
+      self.Q=self.Qfunctions[-1]
       self.save()
-        
-
+                    
     def greedy_action(self, Q,s,nb_actions):
       Qsa = []
       for a in range(nb_actions):
