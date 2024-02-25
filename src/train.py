@@ -19,7 +19,7 @@ env = TimeLimit(
 # ENJOY!
 class ProjectAgent:
     def __init__(self):
-      self.env= HIVPatient(domain_randomization=False)
+      self.env= TimeLimit(HIVPatient(domain_randomization=False), max_episode_steps=200)
       self.S = []
       self.A = []
       self.R = []
