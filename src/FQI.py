@@ -45,7 +45,7 @@ class FQIAgent:
       self.D = np.array(self.D)
   
 
-    def rf_fqi(self, iterations, nb_actions, gamma, disable_tqdm=False):
+    def rf_fqi(self, iterations=100, nb_actions=4, gamma=0.98, disable_tqdm=False):
       nb_samples = self.S.shape[0]
       
       self.SA = np.append(self.S,self.A,axis=1)

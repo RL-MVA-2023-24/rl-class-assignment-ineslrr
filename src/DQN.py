@@ -71,7 +71,7 @@ class DQNAgent:
         state, _ = self.env.reset()
         epsilon = self.epsilon_max
         step = 0
-        save_every=100
+        save_every=50
         while episode < max_episode:
             # update epsilon
             if step > self.epsilon_delay:
@@ -114,10 +114,10 @@ class DQNAgent:
             else:
                 state = next_state
         
-        ## Save model weights
-        if episode % save_every == 0:
-          self.save(f"dqn_{episode}")
-          print(f"Episode {episode}, weights saved!")
+            ## Save model weights
+            if episode % save_every == 0:
+                self.save(f"dqn_{episode}.pkl")
+                print(f"Episode {episode}, weights saved!")
         return episode_return
 
     def act(self, observation: np.ndarray, use_random: bool = False) -> int:
@@ -136,13 +136,13 @@ class DQNAgent:
          torch.save({'model_state_dict': self.model.state_dict()}, path)
 
     def load(self) -> None:
-        self.config['device'] = 'cpu'
-        base_path = "DQN_weights.pkl"
+        # self.config['device'] = 'cpu'
+        base_path = "dqn_300.pkl"
         chkpt = torch.load(base_path, map_location=torch.device('cpu'))
         self.model.load_state_dict(chkpt['model_state_dict'])
-        self.model.to(self.config['device'])
+        self.model.to('cpu')
         self.model.eval()
-        self.target_model =  deepcopy(self.model).to(self.config['device'])
+        self.target_model =  deepcopy(self.model).to('cpu')
 
   
     
