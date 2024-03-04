@@ -1,9 +1,9 @@
 from gymnasium.wrappers import TimeLimit
 from env_hiv import HIVPatient
 #from tqdm import tqdm
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.ensemble import ExtraTreesRegressor
-import matplotlib.pyplot as plt
+#from sklearn.ensemble import RandomForestRegressor
+#from sklearn.ensemble import ExtraTreesRegressor
+#import matplotlib.pyplot as plt
 import pickle
 import os
 import numpy as np
