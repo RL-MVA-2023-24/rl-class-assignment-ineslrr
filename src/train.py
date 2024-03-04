@@ -79,9 +79,11 @@ class ProjectAgent:
             #max_episode=300
             max_episode=4000
             self.agent.train(max_episode)
-        elif self.agent=="fqi":
+        elif self.agent_type=="fqi":
             self.agent.collect_samples(int(1e4))
             self.agent.rf_fqi()
+        elif self.agent_type=="dqn2":
+            self.agent.train()
         else:
             print("Specify agent type")
 
