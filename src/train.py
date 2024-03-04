@@ -3,7 +3,7 @@ from gymnasium.wrappers import TimeLimit
 from env_hiv import HIVPatient
 #from tqdm import tqdm
 from DQN import DQNAgent
-from FQI import FQIAgent
+#from FQI import FQIAgent
 from DQN2 import DQN2Agent
 import pickle
 import os
